@@ -1,0 +1,3 @@
+[submodule "dnsmasq-china-list"]
+	path = dnsmasq-china-list
+	url = https://code.paulg.it/paulgit/dnsmasq-china-list.git
