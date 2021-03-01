@@ -10,6 +10,7 @@ SCRIPT_FOLDER="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 BUILD_FOLDER="$SCRIPT_FOLDER/build"
 REGEX_DOMAIN="\.?\b([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}\b"
 ACCEL_DOMAIN_FILES="$SCRIPT_FOLDER/dnsmasq-china-list/accelerated-domains.china.conf"
+IPCIDR_FILES="$SCRIPT_FOLDER/chn-iplist/chnroute-ipv4.txt"
 SHADOWROCKET_CONF="$SCRIPT_FOLDER/build/china.conf"
 APPLE_RULES_FILE=$SCRIPT_FOLDER/templates/apple-rules.template
 GOOGLE_RULES_FILE=$SCRIPT_FOLDER/templates/google-rules.template
@@ -26,14 +27,14 @@ rm -f $BUILD_FOLDER/*
 # Update the submodules to get their rules
 git submodule foreach git reset --hard HEAD
 git submodule foreach git clean -df 
-git submodule foreach git pull --no-rebase
+git submodule foreach git pull origin master --no-rebase
 
 
 printf "# Paul Git's Shadowrocket Rules for China\n" > $SHADOWROCKET_CONF
 printf "#   https://code.paulg.it/shadowrocket-china\n" >> $SHADOWROCKET_CONF
 printf "#\n" >> $SHADOWROCKET_CONF
 printf "# Direct link to this file:\n" >> $SHADOWROCKET_CONF
-printf "#   https://code.paulg.it/paulgit/shadowrocket-china/raw/branch/master/shadowrocket-china.conf\n" >> $SHADOWROCKET_CONF
+printf "#   https://assets.paulg.it/shadowrocket/china.conf\n" >> $SHADOWROCKET_CONF
 printf "#\n" >> $SHADOWROCKET_CONF
 printf "# Build Time: $BUILD_TIME\n" >> $SHADOWROCKET_CONF
 printf "\n" >> $SHADOWROCKET_CONF
@@ -51,6 +52,7 @@ printf "IP-CIDR,8.8.4.4/32,PROXY\n" >> $SHADOWROCKET_CONF
 printf "IP-CIDR,9.9.9.9/32,PROXY\n" >> $SHADOWROCKET_CONF
 printf "IP-CIDR,208.67.222.222/32,PROXY\n" >> $SHADOWROCKET_CONF
 printf "IP-CIDR,149.112.112.112/32,PROXY\n" >> $SHADOWROCKET_CONF
+printf "DOMAIN-SUFFIX,cn,DIRECT\n" >> $SHADOWROCKET_CONF
 
 printf "## > Apple Service Rules for China\n" >> $SHADOWROCKET_CONF
 cat $APPLE_RULES_FILE >> $SHADOWROCKET_CONF
@@ -68,8 +70,19 @@ for FILE in ${ACCEL_DOMAIN_FILES}; do
   done
 done
 printf "\n\n" >> $SHADOWROCKET_CONF
-cat $OTHER_RULES_FILE >> $SHADOWROCKET_CONF
 printf "## > Paul Git's Other Rules for China\n" >> $SHADOWROCKET_CONF
+cat $OTHER_RULES_FILE >> $SHADOWROCKET_CONF
+printf "\n\n" >> $SHADOWROCKET_CONF
 
-printf "GEOIP,CN,DIRECT\n" >> $SHADOWROCKET_CONF
+printf "## > IPCIDR list for China\n" >> $SHADOWROCKET_CONF
+for FILE in ${IPCIDR_FILES}; do
+  printf "\nAdding $FILE...\n"
+  IPCIDR_LIST=$(grep -v '^#' "$FILE")
+  for IPCIDR_ENTRY in $IPCIDR_LIST
+  do
+    printf "IP-CIDR,$IPCIDR_ENTRY,DIRECT\n" >> $SHADOWROCKET_CONF
+  done
+done
+printf "\n\n" >> $SHADOWROCKET_CONF
+
 printf "FINAL,PROXY" >> $SHADOWROCKET_CONF

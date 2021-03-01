@@ -1,6 +1,6 @@
 [submodule "dnsmasq-china-list"]
 	path = dnsmasq-china-list
 	url = https://code.paulg.it/paulgit/dnsmasq-china-list.git
-[submodule "chnroutes2"]
-	path = chnroutes2
-	url = https://code.paulg.it/paulgit/chnroutes2.git
+[submodule "chn-iplist"]
+	path = chn-iplist
+	url = https://code.paulg.it/paulgit/chn-iplist.git
