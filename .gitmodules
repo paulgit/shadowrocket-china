@@ -1,6 +1,3 @@
 [submodule "dnsmasq-china-list"]
 	path = dnsmasq-china-list
 	url = https://github.com/felixonmars/dnsmasq-china-list.git
-[submodule "chn-iplist"]
-	path = chn-iplist
-	url = https://github.com/PaPerseller/chn-iplist.git
