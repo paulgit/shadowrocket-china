@@ -70,6 +70,7 @@ DOMAIN-KEYWORD,gmail,Proxy,force-remote-dns
 DOMAIN-KEYWORD,instagram,Proxy,force-remote-dns
 DOMAIN-KEYWORD,pixiv,Proxy,force-remote-dns
 DOMAIN-KEYWORD,twitter,Proxy,force-remote-dns
+DOMAIN-KEYWORD,tiktok,Proxy,force-remote-dns
 DOMAIN-KEYWORD,youtube,Proxy,force-remote-dns
 DOMAIN-SUFFIX,9to5mac.com,Proxy,force-remote-dns
 DOMAIN-SUFFIX,abpchina.org,Proxy,force-remote-dns
