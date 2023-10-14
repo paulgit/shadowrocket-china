@@ -10,11 +10,6 @@ DOMAIN-KEYWORD,adguard,DIRECT
 # > Setapp
 DOMAIN-SUFFIX,setapp.com,DIRECT
 
-# > Microsoft Proxy Domains
-DOMAIN-SUFFIX,onedrive.live.com,Proxy,force-remote-dns
-DOMAIN-SUFFIX,1drv.com,Proxy,force-remote-dns
-DOMAIN-SUFFIX,livefilestore.com,Proxy,force-remote-dns
-
 # > Microsoft Direct Domains
 DOMAIN-SUFFIX,footprintdns.com,DIRECT
 DOMAIN-SUFFIX,live.com,DIRECT
@@ -212,7 +207,9 @@ DOMAIN-SUFFIX,klip.me,Proxy,force-remote-dns
 DOMAIN-SUFFIX,libsyn.com,Proxy,force-remote-dns
 DOMAIN-SUFFIX,licdn.com,Proxy,force-remote-dns
 DOMAIN-SUFFIX,linkedin.com,Proxy,force-remote-dns
-DOMAIN-SUFFIX,linode.com,Proxy,force-remote-dns
+DOMAIN-SUFFIX,licdn.net,Proxy,force-remote-dns
+DOMAIN-SUFFIX,licdn.com,Proxy,force-remote-dns
+DOMAIN-SUFFIX,licdn.cn,Proxy,force-remote-dns
 DOMAIN-SUFFIX,linode.com,Proxy,force-remote-dns
 DOMAIN-SUFFIX,lithium.com,Proxy,force-remote-dns
 DOMAIN-SUFFIX,littlehj.com,Proxy,force-remote-dns
