@@ -55,7 +55,9 @@ printf "\n" >> $SHADOWROCKET_CONF
 printf "## > Accelerated Domain Rules for China\n" >> $SHADOWROCKET_CONF
 for FILE in ${ACCEL_DOMAIN_FILES}; do
   printf "\nAdding $FILE...\n"
-  DOMAIN_LIST=$(grep -oE $REGEX_DOMAIN "$FILE")
+  # Remove commented out lines
+  FILE_NO_COMMENTS=$(grep -o '^[^#]*' "$FILE")
+  DOMAIN_LIST=$(grep -oE $REGEX_DOMAIN <<< $FILE_NO_COMMENTS)
   for DOMAIN_ENTRY in $DOMAIN_LIST
   do
     printf "DOMAIN-SUFFIX,$DOMAIN_ENTRY,DIRECT\n" >> $SHADOWROCKET_CONF
