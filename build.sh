@@ -9,7 +9,7 @@ BUILD_TIME="${YEAR}-${MONTH}-${DAY} $TIME"
 SCRIPT_FOLDER="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 BUILD_FOLDER="$SCRIPT_FOLDER/build"
 REGEX_DOMAIN="\.?\b([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}\b"
-ACCEL_DOMAIN_FILES="$SCRIPT_FOLDER/dnsmasq-china-list/apple.china.conf $SCRIPT_FOLDER/dnsmasq-china-list/google.china.conf $SCRIPT_FOLDER/dnsmasq-china-list/accelerated-domains.china.conf"
+ACCEL_DOMAIN_FILES="$SCRIPT_FOLDER/dnsmasq-china-list/apple.china.conf $SCRIPT_FOLDER/dnsmasq-china-list/google.china.conf $SCRIPT_FOLDER/dnsmasq-china-list/accelerated-domains.china.conf $SCRIPT_FOLDER/dnsmasq-china-list-plus/accelerated-domains.china.conf"
 SHADOWROCKET_CONF="$SCRIPT_FOLDER/build/china.conf"
 OTHER_RULES_FILE=$SCRIPT_FOLDER/templates/other-rules.template
 
