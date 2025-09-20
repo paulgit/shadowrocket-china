@@ -38,15 +38,14 @@ printf "[General]\n" >> $SHADOWROCKET_CONF
 printf "bypass-system = true\n" >> $SHADOWROCKET_CONF
 printf "skip-proxy = 192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12, localhost, *.local, captive.apple.com\n" >> $SHADOWROCKET_CONF
 printf "tun-excluded-routes = 10.0.0.0/8, 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, 172.16.0.0/12, 192.0.0.0/24, 192.0.2.0/24, 192.88.99.0/24, 192.168.0.0/16, 198.51.100.0/24, 203.0.113.0/24, 224.0.0.0/4, 255.255.255.255/32, 239.255.255.250/32\n" >> $SHADOWROCKET_CONF
-printf "dns-server = system\n" >> $SHADOWROCKET_CONF
+printf "dns-server = https://doh.pub/dns-query,https://dns.alidns.com/dns-query,223.5.5.5,119.29.29.29\n" >> $SHADOWROCKET_CONF
+printf "fallback-dns-server = system\n"  >> $SHADOWROCKET_CONF
 printf "ipv6 = false\n" >> $SHADOWROCKET_CONF
 printf "prefer-ipv6 = false\n" >> $SHADOWROCKET_CONF
-printf "dns-fallback-system = false\n" >> $SHADOWROCKET_CONF
 printf "dns-direct-system = false\n" >> $SHADOWROCKET_CONF
 printf "icmp-auto-reply = true\n" >> $SHADOWROCKET_CONF
 printf "always-reject-url-rewrite = false\n" >> $SHADOWROCKET_CONF
 printf "private-ip-answer = true\n" >> $SHADOWROCKET_CONF
-printf "# direct domain fail to resolve use proxy rule\n" >> $SHADOWROCKET_CONF
 printf "dns-direct-fallback-proxy = true\n" >> $SHADOWROCKET_CONF
 printf "\n" >> $SHADOWROCKET_CONF
 printf "[Rule]\n" >> $SHADOWROCKET_CONF
